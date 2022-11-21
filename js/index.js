@@ -44,6 +44,16 @@ window.addEventListener('DOMContentLoaded', () => {
       o: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
       a: 1,
     },
+    {
+      q: 'What is the largest continent on Earth?',
+      o: ['North America', 'South America', 'Europe', 'Asia'],
+      a: 3, // array index 1 - so Earth is the correct answer here
+    },
+    {
+      q: 'What is the smallest country in the world?',
+      o: ['Malta', 'Vatican City', 'Liechtenstein', 'Monaco'],
+      a: 1, // array index 1 - so Earth is the correct answer here
+    }
   ];
 
   // function to Display the quiz questions and answers from the object
