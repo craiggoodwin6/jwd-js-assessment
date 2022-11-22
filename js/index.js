@@ -84,15 +84,21 @@ window.addEventListener('DOMContentLoaded', () => {
         liElement = document.querySelector('#' + li);
         radioElement = document.querySelector('#' + r);
 
-        if (quizItem.a == i) {
-          //change background color of li element here
+        if (radioElement.checked) {
+          if (quizItem.a == i) {
+            score++;
+            liElement.style.backgroundColor = 'green';
+          } else {
+            liElement.style.backgroundColor = 'red';
+          }
+        } else if (quizItem.a == i) {
+          liElement.style.backgroundColor = 'yellow';
         }
 
-        if (radioElement.checked) {
-          // code for task 1 goes here
-        }
+        console.log('Score: ', score);
       }
     });
+    return score;
   };
 
   // call the displayQuiz function
