@@ -85,21 +85,45 @@ window.addEventListener('DOMContentLoaded', () => {
         radioElement = document.querySelector('#' + r);
 
         if (radioElement.checked) {
+        // code for task 1 goes here
           if (quizItem.a == i) {
             score++;
             liElement.style.backgroundColor = 'green';
           } else {
             liElement.style.backgroundColor = 'red';
           }
-        } else if (quizItem.a == i) {
-          liElement.style.backgroundColor = 'yellow';
         }
-
-        console.log('Score: ', score);
       }
+      const scoreDisplay = document.querySelector("#score");
+      scoreDisplay.innerHTML = ` Your Score is: ${score} / 5`;
+      clearInterval(timer);
     });
-    return score;
   };
+
+  // countdown timer
+  let seconds = 60;
+  let timer = setInterval(myTimer, 1000);
+  function myTimer() {
+     document.getElementById('time').innerHTML = seconds + " seconds";
+     seconds--;
+     if (seconds == -1) {
+         calculateScore();
+       
+         alert(`Time's up!`); 
+     }
+   };
+   
+ // event listener submit button
+  const btnSubmit = document.querySelector("#btnSubmit");
+  btnSubmit.addEventListener("click", () => {
+    calculateScore();
+  });
+
+  // event listener reset button 
+  const btnReset = document.querySelector("#btnReset");
+  btnReset.addEventListener("click", () => {
+    location.reload();
+  });
 
   // call the displayQuiz function
   displayQuiz();
